@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employing Laban Shape for Generating Emotionally and
+        Functionally Expressive Trajectories in Robotic Manipulators</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2rem;
+        }
+        .paper-section {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .video-container {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .video-emotion {
+            color: #666;
+            font-style: italic;
+        }
+        .abstract {
+            font-style: italic;
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #fff;
+            border-left: 4px solid #3498db;
+        }
+        .container.is-max-desktop.content {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0;
+        }
+        .contact-info {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 1rem 0;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+        .authors {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .conference-info {
+            font-style: italic;
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .image-caption {
+            margin-top: 0.8rem;
+            font-size: 1.05rem;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+        .author-affiliation-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .logo-container {
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .author-affiliation-row .authors {
+            flex: 1 1 auto;
+            text-align: center;
+            margin: 0;
+            padding: 0 1.5rem;
+            word-break: break-word;
+        }
+        .author-affiliation-row img.cu-logo {
+            height: 140px;
+            width: auto;
+            display: block;
+        }
+        .author-affiliation-row img.hiro-logo {
+            height: 60px;
+            width: auto;
+            display: block;
+            margin-top: 24px;
+        }
+        @media (max-width: 600px) {
+            .author-affiliation-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .author-affiliation-row .authors {
+                margin: 0.5rem 0;
+            }
+            .logo-container {
+                width: 100%;
+            }
+        }
+        .bibtex-section {
+            margin-bottom: 1rem;
+        }
+        .bibtex-section h2,
+        .bibtex-section pre,
+        .bibtex-section code {
+            margin-bottom: 0.5rem;
+        }
+        .bibtex-section pre {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .images-row {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-end;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .images-row .image-section.left-image {
+            flex: 1 1 220px;
+            max-width: 300px;
+        }
+        .images-row .image-section.right-image {
+            flex: 2 1 480px;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employing Laban Shape for Generating Emotionally and
+                Functionally Expressive Trajectories in Robotic Manipulators</h1>
+            <div class="author-affiliation-row">
+                <div class="logo-container">
+                    <img src="CU.png" alt="University of Colorado Boulder logo" class="cu-logo">
+                </div>
+                <p class="authors">Srikrishna Bangalore Raghu, Clare Lohrmann, Akshay Bakshi, Jennifer Kim, Jose Caraveo Herrera, Bradley Hayes, and Alessandro Roncone</p>
+                <div class="logo-container">
+                    <img src="HIRO.png" alt="HIRO group logo" class="hiro-logo">
+                </div>
+            </div>
+            <p class="conference-info">34th IEEE International Conference on Robot and Human Interactive Communication (ROMAN), Aug 25 - Aug 29, 2025 (Accepted)</p>
+            <p style="margin-top: 0.5rem;"><a href="https://arxiv.org/pdf/2505.11716" target="_blank" style="color: #3498db; text-decoration: none;">[Paper PDF]</a></p>
+        </header>
+
+        <section class="paper-section">
+            <div class="abstract">
+                <strong>Abstract:</strong>
+                <p>Successful human-robot collaboration depends on cohesive communication and a precise understanding of the robot's abilities, goals, and constraints. While robotic manipulators offer high precision, versatility, and productivity, they exhibit expressionless and monotonous motions that conceal the robot's intention, resulting in a lack of efficiency and transparency with humans. In this work, we use Laban notation, a dance annotation language, to enable robotic manipulators to generate trajectories with functional expressivity, where the robot uses nonverbal cues to communicate its abilities and the likelihood of succeeding at its task. We achieve this by introducing two novel variants of Hesitant expressive motion (Spoke-Like and Arc-Like). We also enhance the emotional expressivity of four existing emotive trajectories (Happy, Sad, Shy, and Angry) by augmenting Laban Effort usage with Laban Shape. The functionally expressive motions are validated via a human-subjects study, where participants equate both variants of Hesitant motion with reduced robot competency. The enhanced emotive trajectories are shown to be viewed as distinct emotions using the Valence-Arousal-Dominance (VAD) spectrum, corroborating the usage of Laban Shape.</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/C7SvBWLes-c" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Shy</div>
+                    <div class="video-emotion">Emotion: Shy</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/6rOT_icd5Gs" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Sad</div>
+                    <div class="video-emotion">Emotion: Sad</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/118dr1NZP1M" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Hesitant Spoke-Like</div>
+                    <div class="video-emotion">Motion: Hesitant Spoke-Like</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/L-__gkSfDhk" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Hesitant Arc-Like</div>
+                    <div class="video-emotion">Motion: Hesitant Arc-Like</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/6HQeV9HvhU8" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Happy</div>
+                    <div class="video-emotion">Emotion: Happy</div>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/q7RXJYWJhCk" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-title">Angry</div>
+                    <div class="video-emotion">Emotion: Angry</div>
+                </div>
+            </div>
+
+            <div class="images-row">
+                <div class="image-section left-image">
+                    <img src="robot_emotions.png" alt="Robot arm showing different expressive trajectories: happy, hesitant/shy, angry, and sad.">
+                    <div class="image-caption">Here, we have leveraged various Laban Shape Forms to enhance the expressivity of the corresponding emotions.</div>
+                </div>
+                <div class="image-section right-image">
+                    <img src="flowchart.png" alt="Flowchart showing Laban Shape variants and expressivity.">
+                    <div class="image-caption">We have employed Laban Shape to introduce two new variants of Hesitant trajectories, enabling functional expressivity while enhancing the expressivity of emotive trajectories.</div>
+                </div>
+            </div>
+
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Email: srba2850@colorado.edu</p>
+            <p>PhD Student</p>
+            <p>Department of Computer Science<br>
+            University of Colorado Boulder<br>
+            Boulder, CO, USA</p>
+            <p>Personal Website: <a href="https://brsrikrishna.wixsite.com/srikrishna-bangalore" target="_blank">brsrikrishna.wixsite.com/srikrishna-bangalore</a></p>
+        </section>
+
+        <div class="container is-max-desktop content bibtex-section">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{raghu2025employing,
+              title={Employing Laban Shape for Generating Emotionally and Functionally Expressive Trajectories in Robotic Manipulators},
+              author={Raghu, Srikrishna Bangalore and Lohrmann, Clare and Bakshi, Akshay and Kim, Jennifer and Herrera, Jose Caraveo and Hayes, Bradley and Roncone, Alessandro},
+              journal={arXiv preprint arXiv:2505.11716},
+              year={2025}
+            }
+            </code></pre>
+          </div>
+     </section>
+     
+    </div>
+</body>
+</html>
