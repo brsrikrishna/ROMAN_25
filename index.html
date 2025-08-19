@@ -152,13 +152,6 @@
             gap: 2rem;
             margin-bottom: 1rem;
         }
-        .logo-container {
-            width: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-        }
         .author-affiliation-row .authors {
             flex: 1 1 auto;
             text-align: center;
@@ -170,6 +163,13 @@
             line-height: 1.4;
             max-width: 100%;
         }
+        .logo-container {
+            width: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
         .author-affiliation-row img.cu-logo {
             height: 140px;
             width: auto;
@@ -180,6 +180,21 @@
             width: auto;
             display: block;
             margin-top: 24px;
+        }
+        .affiliation-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        .affiliation-logos img.cu-logo {
+            height: 140px;
+            width: auto;
+        }
+        .affiliation-logos img.hiro-logo {
+            height: 60px;
+            width: auto;
         }
         @media (max-width: 600px) {
             .author-affiliation-row {
@@ -204,6 +219,15 @@
         .bibtex-section pre {
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+        .bibtex-section code {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .images-row {
             display: block;
@@ -223,13 +247,11 @@
             <h1>Employing Laban Shape for Generating Emotionally and
                 Functionally Expressive Trajectories in Robotic Manipulators</h1>
             <div class="author-affiliation-row">
-                <div class="logo-container">
-                    <img src="CU.png" alt="University of Colorado Boulder logo" class="cu-logo">
-                </div>
                 <p class="authors">Srikrishna Bangalore Raghu, Clare Lohrmann, Akshay Bakshi, Jennifer Kim, Jose Caraveo Herrera, Bradley Hayes, and Alessandro Roncone</p>
-                <div class="logo-container">
-                    <img src="HIRO.png" alt="HIRO group logo" class="hiro-logo">
-                </div>
+            </div>
+            <div class="affiliation-logos">
+                <img src="CU.png" alt="University of Colorado Boulder logo" class="cu-logo">
+                <img src="HIRO.png" alt="HIRO group logo" class="hiro-logo">
             </div>
             <p class="conference-info">34th IEEE International Conference on Robot and Human Interactive Communication (ROMAN), Aug 25 - Aug 29, 2025 (Accepted)</p>
             <p style="margin-top: 0.5rem;"><a href="https://arxiv.org/pdf/2505.11716" target="_blank" style="color: #3498db; text-decoration: none;">[Paper PDF]</a></p>
